@@ -9,7 +9,8 @@
 <?import java.net.URL?>
 <?import javafx.scene.layout.BorderPane?>
 <BorderPane xmlns:fx="http://javafx.com/fxml"
-            fx:controller="com.example.wordlefx.MainController">
+            fx:controller="com.example.wordlefx.MainController"
+            onKeyPressed="#handleKeyPressed">
     <stylesheets>
         <URL value="@styles.css"/>
     </stylesheets>
