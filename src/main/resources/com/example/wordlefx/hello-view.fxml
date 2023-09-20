@@ -10,7 +10,7 @@
 <?import javafx.scene.layout.BorderPane?>
 <BorderPane xmlns:fx="http://javafx.com/fxml"
             fx:controller="com.example.wordlefx.MainController"
-            onKeyPressed="#handleKeyPressed">
+            onKeyReleased="#handleKeyPressed">
     <stylesheets>
         <URL value="@styles.css"/>
     </stylesheets>

@@ -1,5 +1,9 @@
 package com.example.elements;
 
+/*
+Class responsible for creating a whole grid of Blocks
+ */
+
 import javafx.scene.input.KeyCode;
 import javafx.scene.layout.GridPane;
 
@@ -30,15 +34,27 @@ public class BlockGrid {
         }
     }
     public void addLetter(KeyCode keyCode){
-        if(keyCode == KeyCode.BACK_SPACE && currentColumn > 0){
-            currentColumn--;
-            blockGrid[currentColumn][currentRow].getLabel().setText("");
-        }
         if(currentColumn <= 4 && currentRow <= 5 && keyCode.getChar().length() == 1 &&
             64 < (int) keyCode.getChar().charAt(0) && (int) keyCode.getChar().charAt(0) < 91){
 
                     blockGrid[currentColumn][currentRow].getLabel().setText(keyCode.getChar());
                     currentColumn++;
+        }
+    }
+    public void backspace() {
+        if (currentColumn > 0) {
+            currentColumn--;
+            blockGrid[currentColumn][currentRow].getLabel().setText("");
+        }
+    }
+    public void checkWord(){
+        if(currentColumn == 5){
+            String[] tempArray = new String[5];
+            for(int i = currentColumn - 1; i >= 0; i--){
+                tempArray[i] = blockGrid[currentRow][i].getLabel().getText();
+            }
+            currentColumn = 0;
+            currentRow++;
         }
     }
 }

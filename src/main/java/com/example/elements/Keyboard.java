@@ -1,5 +1,9 @@
 package com.example.elements;
 
+/*
+Class, singleton, responsible for creating a whole keyboard made of KeyButtons
+ */
+
 import javafx.scene.layout.GridPane;
 
 import java.security.Key;

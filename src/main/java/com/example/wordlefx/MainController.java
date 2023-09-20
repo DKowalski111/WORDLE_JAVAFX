@@ -1,11 +1,13 @@
 package com.example.wordlefx;
 
 import com.example.elements.BlockGrid;
+import com.example.elements.Database;
 import com.example.elements.Keyboard;
-import javafx.event.ActionEvent;
+import javafx.application.Platform;
 import javafx.fxml.FXML;
-import javafx.scene.control.Label;
+import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
+import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.GridPane;
 
 public class MainController {
@@ -17,11 +19,20 @@ public class MainController {
     private GridPane keyboardGridPane;
 
     public void initialize(){
+        Database.getInstance();
         createGrid();
+        Platform.runLater(() -> mainGridPane.requestFocus());
     }
     @FXML
     public void handleKeyPressed(KeyEvent keyEvent){
-        BlockGrid.getInstance().addLetter(keyEvent.getCode());
+        System.out.println(keyEvent);
+        if(keyEvent.getCode().equals(KeyCode.ENTER)){
+            BlockGrid.getInstance().checkWord();
+        } else if(keyEvent.getCode().equals(KeyCode.BACK_SPACE)){
+            BlockGrid.getInstance().backspace();
+        } else{
+            BlockGrid.getInstance().addLetter(keyEvent.getCode());
+        }
     }
     private void createGrid(){
         blockGrid.createGrid(mainGridPane);
