@@ -6,17 +6,16 @@ import javafx.scene.control.Label;
 import javafx.scene.layout.GridPane;
 
 public class MainController {
-    private BlockGrid blockGrid;
+    private BlockGrid blockGrid = BlockGrid.getInstance();
     @FXML
     private GridPane mainGridPane;
     @FXML
     private Label welcomeText;
 
     public void initialize(){
-
+        createGrid(mainGridPane);
     }
-    @FXML
-    protected void onHelloButtonClick() {
-        welcomeText.setText("Welcome to JavaFX Application!");
+    private void createGrid(GridPane gridPane){
+        blockGrid.createGrid(gridPane);
     }
 }

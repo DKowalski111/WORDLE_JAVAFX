@@ -6,7 +6,17 @@
 
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.layout.GridPane?>
-<GridPane fx:id="mainGridPane" alignment="CENTER" xmlns:fx="http://javafx.com/fxml"
-          fx:controller="com.example.wordlefx.MainController">
+<?import java.net.URL?>
+<?import javafx.scene.layout.BorderPane?>
+<BorderPane xmlns:fx="http://javafx.com/fxml"
+            fx:controller="com.example.wordlefx.MainController">
+    <stylesheets>
+        <URL value="@styles.css"/>
+    </stylesheets>
+    <center>
+        <GridPane fx:id="mainGridPane" alignment="TOP_CENTER" vgap="10" hgap="10">
 
-</GridPane>
+        </GridPane>
+    </center>
+</BorderPane>
+
