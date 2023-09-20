@@ -26,7 +26,7 @@ public class BlockGrid {
                 Block newBlock = new Block();
                 blockGrid[i][j] = newBlock;
                 newBlock.getLabel().getStyleClass().add("block-default");
-                gridPane.add(newBlock.getLabel(), i, j);
+                gridPane.add(newBlock.getLabel(), j, i);
             }
         }
     }

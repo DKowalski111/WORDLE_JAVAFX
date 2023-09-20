@@ -13,10 +13,11 @@
     <stylesheets>
         <URL value="@styles.css"/>
     </stylesheets>
-    <center>
-        <GridPane fx:id="mainGridPane" alignment="TOP_CENTER" vgap="10" hgap="10">
-
-        </GridPane>
-    </center>
+    <top>
+        <GridPane fx:id="mainGridPane" alignment="TOP_CENTER" vgap="10" hgap="10"/>
+    </top>
+    <bottom>
+        <GridPane fx:id="keyboardGridPane" alignment="TOP_CENTER" vgap="10" hgap="10"/>
+    </bottom>
 </BorderPane>
 
