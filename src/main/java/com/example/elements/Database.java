@@ -31,4 +31,7 @@ public class Database {
         }
         return instance;
     }
+    public boolean checkWord(String word){
+        return word.equals(getInstance().password.toUpperCase());
+    }
 }

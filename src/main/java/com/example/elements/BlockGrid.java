@@ -51,8 +51,10 @@ public class BlockGrid {
         if(currentColumn == 5){
             String[] tempArray = new String[5];
             for(int i = currentColumn - 1; i >= 0; i--){
-                tempArray[i] = blockGrid[currentRow][i].getLabel().getText();
+                tempArray[i] = blockGrid[i][currentRow].getLabel().getText();
             }
+            String enteredWord = String.join("", tempArray);
+            System.out.println(Database.getInstance().checkWord(enteredWord));
             currentColumn = 0;
             currentRow++;
         }
