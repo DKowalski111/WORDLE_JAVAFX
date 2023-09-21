@@ -129,3 +129,7 @@
     -fx-border-color: -empty-border-color;
     -fx-text-fill: -text-fill-color;
 }
+
+.border-pane-disabled{
+    -fx-background-color: rgba(0, 0, 0, 0.5);
+}

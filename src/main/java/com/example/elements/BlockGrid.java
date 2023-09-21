@@ -4,8 +4,11 @@ package com.example.elements;
 Class responsible for creating a whole grid of Blocks
  */
 
+import com.example.wordlefx.GameOver;
+import com.example.wordlefx.Main;
 import javafx.scene.input.KeyCode;
 import javafx.scene.layout.GridPane;
+import javafx.stage.Stage;
 
 public class BlockGrid {
     private static BlockGrid instance;
@@ -49,9 +52,9 @@ public class BlockGrid {
     public void updateBlocks(String enteredWord, String password){
         for(int i = currentColumn - 1; i >= 0; i--){
             Block currentBlock = blockGrid[i][currentRow];
-            if(password.charAt(i) == enteredWord.charAt(i)){
+            if(password.charAt(i) == enteredWord.toLowerCase().charAt(i)){
                 currentBlock.setToCorrect();
-            }else if(password.contains(String.valueOf(enteredWord.charAt(i)))){
+            }else if(password.contains(String.valueOf(enteredWord.toLowerCase().charAt(i)))){
                 currentBlock.setToPresent();
             } else {
                 currentBlock.setToWrong();

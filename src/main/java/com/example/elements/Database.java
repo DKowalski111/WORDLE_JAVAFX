@@ -1,5 +1,7 @@
 package com.example.elements;
 
+import com.example.wordlefx.GameOver;
+
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
@@ -38,6 +40,6 @@ public class Database {
         return password;
     }
     public boolean checkIfExists(String word){
-        return words.contains(word);
+        return words.contains(word.toLowerCase());
     }
 }
