@@ -46,25 +46,28 @@ public class BlockGrid {
             blockGrid[currentColumn][currentRow].getLabel().setText("");
         }
     }
-    public void checkWord(){
-        if(currentColumn == 5){
-            String[] tempArray = new String[5];
-            for(int i = currentColumn - 1; i >= 0; i--){
-                Block currentBlock = blockGrid[i][currentRow];
-                String currentLetter = currentBlock.getLabel().getText();
-                tempArray[i] = currentLetter;
-                String password = Database.getInstance().getPassword().toUpperCase();
-                if(password.charAt(i) == currentLetter.charAt(0)){
-                    currentBlock.setToCorrect();
-                }else if(password.contains(currentLetter)){
-                    currentBlock.setToPresent();
-                } else {
-                    currentBlock.setToWrong();
-                }
+    public void updateBlocks(String enteredWord, String password){
+        for(int i = currentColumn - 1; i >= 0; i--){
+            Block currentBlock = blockGrid[i][currentRow];
+            if(password.charAt(i) == enteredWord.charAt(i)){
+                currentBlock.setToCorrect();
+            }else if(password.contains(String.valueOf(enteredWord.charAt(i)))){
+                currentBlock.setToPresent();
+            } else {
+                currentBlock.setToWrong();
             }
-            String enteredWord = String.join("", tempArray);
-            currentColumn = 0;
-            currentRow++;
         }
+        currentColumn = 0;
+        currentRow++;
+    }
+    public String getWordFromRow(){
+        String[] tempArray = new String[5];
+        for(int i = currentColumn - 1; i >= 0; i--){
+            tempArray[i] = blockGrid[i][currentRow].getLabel().getText();
+        }
+        return String.join("", tempArray);
+    }
+    public int getCurrentColumn(){
+        return this.currentColumn;
     }
 }

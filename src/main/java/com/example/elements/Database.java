@@ -37,4 +37,7 @@ public class Database {
     public String getPassword() {
         return password;
     }
+    public boolean checkIfExists(String word){
+        return words.contains(word);
+    }
 }

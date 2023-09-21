@@ -84,3 +84,48 @@
     -fx-border-color: -empty-border-color;
     -fx-text-fill: -text-fill-color;
 }
+
+.key-button-correct{
+    -fx-font-size: 24px;
+    -fx-font-weight: bold;
+    -fx-border-width: 3px;
+    -fx-min-width: 65px;
+    -fx-min-height: 65px;
+    -fx-pref-width: 65px;
+    -fx-pref-height: 65px;
+    -fx-text-alignment: center;
+    -fx-alignment: center;
+    -fx-background-color: -correct-color;
+    -fx-border-color: -empty-border-color;
+    -fx-text-fill: -text-fill-color;
+}
+
+.key-button-present{
+    -fx-font-size: 24px;
+    -fx-font-weight: bold;
+    -fx-border-width: 3px;
+    -fx-min-width: 65px;
+    -fx-min-height: 65px;
+    -fx-pref-width: 65px;
+    -fx-pref-height: 65px;
+    -fx-text-alignment: center;
+    -fx-alignment: center;
+    -fx-background-color: -present-color;
+    -fx-border-color: -empty-border-color;
+    -fx-text-fill: -text-fill-color;
+}
+
+.key-button-wrong{
+    -fx-font-size: 24px;
+    -fx-font-weight: bold;
+    -fx-border-width: 3px;
+    -fx-min-width: 65px;
+    -fx-min-height: 65px;
+    -fx-pref-width: 65px;
+    -fx-pref-height: 65px;
+    -fx-text-alignment: center;
+    -fx-alignment: center;
+    -fx-background-color: -wrong-color;
+    -fx-border-color: -empty-border-color;
+    -fx-text-fill: -text-fill-color;
+}

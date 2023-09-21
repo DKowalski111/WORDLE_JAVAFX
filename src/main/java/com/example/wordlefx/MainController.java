@@ -27,7 +27,7 @@ public class MainController {
     public void handleKeyPressed(KeyEvent keyEvent){
         System.out.println(keyEvent);
         if(keyEvent.getCode().equals(KeyCode.ENTER)){
-            BlockGrid.getInstance().checkWord();
+            checkWord();
         } else if(keyEvent.getCode().equals(KeyCode.BACK_SPACE)){
             BlockGrid.getInstance().backspace();
         } else{
@@ -37,5 +37,17 @@ public class MainController {
     private void createGrid(){
         blockGrid.createGrid(mainGridPane);
         keyboard.createGrid(keyboardGridPane);
+    }
+    public static void checkWord(){
+        if(BlockGrid.getInstance().getCurrentColumn() == 5){
+            System.out.println(BlockGrid.getInstance().getCurrentColumn());
+            String currentWord = BlockGrid.getInstance().getWordFromRow();
+            System.out.println("Current Word: " + currentWord);
+            if(Database.getInstance().checkIfExists(currentWord.toLowerCase())){
+                System.out.println("Updating blocks");
+                String password = Database.getInstance().getPassword();
+                BlockGrid.getInstance().updateBlocks(currentWord.toLowerCase(), password);
+            }
+        }
     }
 }
