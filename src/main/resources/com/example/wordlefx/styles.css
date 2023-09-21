@@ -1,11 +1,11 @@
 .root{
+    -default-color: #e9ecef;
     -present-color: #fcc419;
-    -correct-color: #40c057;
-    -wrong-color: #495057;
+    -correct-color: #8ce99a;
+    -wrong-color: #adb5bd;
     -text-fill-color: #212529;
     -empty-border-color: #212529;
     -unlocked-border-color: #212529;
-    -background-color: #e9ecef;
     -key-background-color: #dee2e6;
 
 }
@@ -20,7 +20,52 @@
     -fx-pref-height: 65px;
     -fx-text-alignment: center;
     -fx-alignment: center;
-    -fx-background-color: -background-color;
+    -fx-background-color: -default-color;
+    -fx-border-color: -empty-border-color;
+    -fx-text-fill: -text-fill-color;
+}
+
+.block-correct{
+    -fx-font-size: 30px;
+    -fx-font-weight: bold;
+    -fx-border-width: 3px;
+    -fx-min-width: 65px;
+    -fx-min-height: 65px;
+    -fx-pref-width: 65px;
+    -fx-pref-height: 65px;
+    -fx-text-alignment: center;
+    -fx-alignment: center;
+    -fx-background-color: -correct-color;
+    -fx-border-color: -empty-border-color;
+    -fx-text-fill: -text-fill-color;
+}
+
+.block-present{
+    -fx-font-size: 30px;
+    -fx-font-weight: bold;
+    -fx-border-width: 3px;
+    -fx-min-width: 65px;
+    -fx-min-height: 65px;
+    -fx-pref-width: 65px;
+    -fx-pref-height: 65px;
+    -fx-text-alignment: center;
+    -fx-alignment: center;
+    -fx-background-color: -present-color;
+    -fx-border-color: -empty-border-color;
+    -fx-text-fill: -text-fill-color;
+}
+
+.block-wrong{
+    -fx-font-size: 30px;
+    -fx-font-weight: bold;
+    -fx-border-width: 3px;
+    -fx-min-width: 65px;
+    -fx-min-height: 65px;
+    -fx-pref-width: 65px;
+    -fx-pref-height: 65px;
+    -fx-text-alignment: center;
+    -fx-alignment: center;
+    -fx-background-color: -wrong-color;
     -fx-border-color: -empty-border-color;
     -fx-text-fill: -text-fill-color;
 }
@@ -35,7 +80,7 @@
     -fx-pref-height: 65px;
     -fx-text-alignment: center;
     -fx-alignment: center;
-    -fx-background-color: -background-color;
+    -fx-background-color: -default-color;
     -fx-border-color: -empty-border-color;
     -fx-text-fill: -text-fill-color;
 }

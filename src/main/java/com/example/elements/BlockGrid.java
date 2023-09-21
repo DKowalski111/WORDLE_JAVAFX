@@ -28,7 +28,6 @@ public class BlockGrid {
             for(int j = 0; j < 5; j++){
                 Block newBlock = new Block();
                 blockGrid[j][i] = newBlock;
-                newBlock.getLabel().getStyleClass().add("block-default");
                 gridPane.add(newBlock.getLabel(), j, i);
             }
         }
@@ -51,10 +50,19 @@ public class BlockGrid {
         if(currentColumn == 5){
             String[] tempArray = new String[5];
             for(int i = currentColumn - 1; i >= 0; i--){
-                tempArray[i] = blockGrid[i][currentRow].getLabel().getText();
+                Block currentBlock = blockGrid[i][currentRow];
+                String currentLetter = currentBlock.getLabel().getText();
+                tempArray[i] = currentLetter;
+                String password = Database.getInstance().getPassword().toUpperCase();
+                if(password.charAt(i) == currentLetter.charAt(0)){
+                    currentBlock.setToCorrect();
+                }else if(password.contains(currentLetter)){
+                    currentBlock.setToPresent();
+                } else {
+                    currentBlock.setToWrong();
+                }
             }
             String enteredWord = String.join("", tempArray);
-            System.out.println(Database.getInstance().checkWord(enteredWord));
             currentColumn = 0;
             currentRow++;
         }

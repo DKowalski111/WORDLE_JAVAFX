@@ -34,4 +34,7 @@ public class Database {
     public boolean checkWord(String word){
         return word.equals(getInstance().password.toUpperCase());
     }
+    public String getPassword() {
+        return password;
+    }
 }
