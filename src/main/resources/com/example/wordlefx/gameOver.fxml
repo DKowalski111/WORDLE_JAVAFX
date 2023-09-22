@@ -10,7 +10,7 @@
 <BorderPane fx:id="gameOverBorderPane" xmlns="http://javafx.com/javafx"
             xmlns:fx="http://javafx.com/fxml"
             fx:controller="com.example.wordlefx.GameOverController"
-            prefHeight="760.0" prefWidth="1000.0">
+            prefHeight="400" prefWidth="500">
     <stylesheets>
         <URL value="@styles.css"/>
     </stylesheets>

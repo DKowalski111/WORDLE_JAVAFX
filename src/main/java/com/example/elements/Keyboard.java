@@ -46,4 +46,9 @@ public class Keyboard {
         }
         return keyboardGrid[indexOfLetter];
     }
+    public void stopGame(){
+        for(KeyButton keyButton : keyboardGrid){
+            keyButton.stopGame();
+        }
+    }
 }

@@ -15,6 +15,8 @@ import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.GridPane;
 import javafx.stage.Stage;
 
+import java.security.Key;
+
 public class MainController {
     private BlockGrid blockGrid = BlockGrid.getInstance();
     private Keyboard keyboard = Keyboard.getInstance();
@@ -54,13 +56,17 @@ public class MainController {
                 String password = Database.getInstance().getPassword();
                 BlockGrid.getInstance().updateBlocks(currentWord, password);
                 if(Database.getInstance().checkWord(currentWord)){
-                    Stage mainStage = Main.getMainStage();
-                    GameOver gameOver = new GameOver();
-                    gameOver.generateGameOverPopup(mainStage);
-                    isGameOver = true;
+                    stopGame();
                 }
             }
         }
+    }
+    public static void stopGame(){
+        Stage mainStage = Main.getMainStage();
+        GameOver.generateGameOverPopup(mainStage);
+        isGameOver = true;
+        BlockGrid.getInstance().stopGame();
+        Keyboard.getInstance().stopGame();
     }
     public static boolean isGameOver(){
         return isGameOver;

@@ -16,6 +16,7 @@ public class KeyButton {
     private Button button;
     private EventHandler<ActionEvent> eventListener;
     private boolean alreadyChecked = false;
+    private String keyState = "default";
     public KeyButton(String s){
         this.button = new Button(s);
         this.button.getStyleClass().add("key-button-default");
@@ -38,22 +39,14 @@ public class KeyButton {
     public Button getButton(){
         return this.button;
     }
-    public void setToCorrect(){
+    public void updateKeyButton(String keyState){
         if(!alreadyChecked){
-            this.button.getStyleClass().add("key-button-correct");
+            this.keyState = keyState;
+            this.button.getStyleClass().add(String.format("key-button-%s", keyState));
             alreadyChecked = true;
         }
     }
-    public void setToPresent(){
-        if(!alreadyChecked){
-            this.button.getStyleClass().add("key-button-present");
-            alreadyChecked = true;
-        }
-    }
-    public void setToWrong(){
-        if(!alreadyChecked){
-            this.button.getStyleClass().add("key-button-wrong");
-            alreadyChecked = true;
-        }
+    public void stopGame(){
+        this.button.getStyleClass().add("key-button-"+keyState+"-disabled");
     }
 }

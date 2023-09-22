@@ -3,7 +3,8 @@ package com.example.elements;
 import javafx.scene.control.Label;
 
 public class Block {
-    Label label;
+    private Label label;
+    private String blockState;
     public Block(){
         this.label = new Label();
         this.label.setText("");
@@ -12,13 +13,12 @@ public class Block {
     public Label getLabel(){
         return this.label;
     }
-    public void setToCorrect(){
-        this.label.getStyleClass().add("block-correct");
+    public void setBlockState(String blockState){
+        this.blockState = blockState;
+        this.label.getStyleClass().add(String.format("block-%s", blockState));
     }
-    public void setToPresent(){
-        this.label.getStyleClass().add("block-present");
-    }
-    public void setToWrong(){
-        this.label.getStyleClass().add("block-wrong");
+    public void stopGame(){
+        this.label.setOpacity(0.5);
+        this.label.getStyleClass().add("block-" + blockState + "-disabled");
     }
 }

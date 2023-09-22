@@ -53,11 +53,11 @@ public class BlockGrid {
         for(int i = currentColumn - 1; i >= 0; i--){
             Block currentBlock = blockGrid[i][currentRow];
             if(password.charAt(i) == enteredWord.toLowerCase().charAt(i)){
-                currentBlock.setToCorrect();
+                currentBlock.setBlockState("correct");
             }else if(password.contains(String.valueOf(enteredWord.toLowerCase().charAt(i)))){
-                currentBlock.setToPresent();
+                currentBlock.setBlockState("present");
             } else {
-                currentBlock.setToWrong();
+                currentBlock.setBlockState("wrong");
             }
         }
         currentColumn = 0;
@@ -72,5 +72,12 @@ public class BlockGrid {
     }
     public int getCurrentColumn(){
         return this.currentColumn;
+    }
+    public void stopGame(){
+        for(int i = 0; i < 5; i++){
+            for(int j = 0; j < 6; j++){
+                blockGrid[i][j].stopGame();
+            }
+        }
     }
 }
