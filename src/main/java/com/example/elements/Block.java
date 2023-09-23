@@ -2,13 +2,18 @@ package com.example.elements;
 
 import javafx.scene.control.Label;
 
+/*
+Class responsible for creating single block with a label representing single letter of an entered word
+ */
+
 public class Block {
-    private Label label;
+    private final Label label;
     private String blockState;
-    public Block(){
+    public Block(String blockState){
+        this.blockState = blockState;
         this.label = new Label();
         this.label.setText("");
-        this.label.getStyleClass().add("block-default");
+        this.label.getStyleClass().add(blockState);
     }
     public Label getLabel(){
         return this.label;
@@ -22,7 +27,7 @@ public class Block {
     }
     public void resetGame(){
         this.label.setText("");
-        this.label.getStyleClass().remove(String.format("block-%s", blockState));
+        this.label.getStyleClass().remove(String.format("block-%s", this.blockState));
         this.label.getStyleClass().add("block-default");
         this.label.setOpacity(1);
     }

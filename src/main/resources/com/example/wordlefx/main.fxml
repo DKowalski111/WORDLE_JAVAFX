@@ -11,15 +11,21 @@
 <?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.layout.Pane?>
 
-<BorderPane fx:id="mainPane" xmlns:fx="http://javafx.com/fxml"
+<?import javafx.scene.layout.HBox?>
+<BorderPane xmlns:fx="http://javafx.com/fxml"
             fx:controller="com.example.wordlefx.MainController"
             onKeyReleased="#handleKeyPressed">
     <stylesheets>
         <URL value="@main.css"/>
     </stylesheets>
     <top>
-        <GridPane fx:id="blockGridPane" alignment="TOP_CENTER" vgap="10" hgap="10"/>
+        <HBox fx:id="mainTitlePane" alignment="TOP_CENTER" prefHeight="50">
+            <HBox spacing="5" fx:id="titleWordlePane"/>
+        </HBox>
     </top>
+    <center>
+        <GridPane fx:id="blockGridPane" alignment="TOP_CENTER" vgap="10" hgap="10"/>
+    </center>
     <bottom>
         <GridPane fx:id="keyboardGridPane" alignment="TOP_CENTER" vgap="10" hgap="10"/>
     </bottom>

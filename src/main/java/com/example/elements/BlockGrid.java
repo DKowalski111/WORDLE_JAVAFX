@@ -1,20 +1,17 @@
 package com.example.elements;
 
 /*
-Class responsible for creating a whole grid of Blocks
+Class responsible for creating a whole grid of Blocks and a Title grid
  */
-
-import com.example.wordlefx.GameOver;
-import com.example.wordlefx.Main;
 import com.example.wordlefx.MainController;
 import javafx.scene.input.KeyCode;
 import javafx.scene.layout.GridPane;
-import javafx.stage.Stage;
+import javafx.scene.layout.HBox;
 
 public class BlockGrid {
-    private static GridPane parent;
+    private GridPane parent;
     private static BlockGrid instance;
-    private Block[][] blockGrid;
+    private final Block[][] blockGrid;
     private int currentRow;
     private int currentColumn;
     private BlockGrid(){
@@ -30,12 +27,22 @@ public class BlockGrid {
     }
     public void createGrid(GridPane gridPane){
         parent = gridPane;
+        parent.getStyleClass().add("block-grid-pane");
         for(int i = 0; i < 6; i++){
             for(int j = 0; j < 5; j++){
-                Block newBlock = new Block();
+                Block newBlock = new Block("block-default");
                 blockGrid[j][i] = newBlock;
-                gridPane.add(newBlock.getLabel(), j, i);
+                parent.add(newBlock.getLabel(), j, i);
             }
+        }
+    }
+    public void createTitleGrid(HBox hbox){
+        String[] title = {"W", "O", "R", "D", "L", "E"};
+        String[] titleStates = {"title-correct", "title-wrong", "title-present", "title-default", "title-wrong", "title-present"};
+        for(int i = 0; i < 6; i++){
+            Block newBlock = new Block("block-" + titleStates[i]);
+            newBlock.getLabel().setText(title[i]);
+            hbox.getChildren().add(newBlock.getLabel());
         }
     }
     public void addLetter(KeyCode keyCode){
@@ -65,9 +72,6 @@ public class BlockGrid {
         }
         currentColumn = 0;
         currentRow++;
-        if(currentRow == 6){
-            MainController.noMoreLives();
-        }
     }
     public String getWordFromRow(){
         String[] tempArray = new String[5];
@@ -79,7 +83,12 @@ public class BlockGrid {
     public int getCurrentColumn(){
         return this.currentColumn;
     }
+    public int getCurrentRow() {
+        return currentRow;
+    }
+
     public void stopGame(){
+        parent.setOpacity(0.5);
         for(int i = 0; i < 5; i++){
             for(int j = 0; j < 6; j++){
                 blockGrid[i][j].stopGame();
@@ -87,6 +96,7 @@ public class BlockGrid {
         }
     }
     public void resetGame(){
+        parent.setOpacity(1);
         for(int i = 0; i < 5; i++){
             for(int j = 0; j < 6; j++){
                 blockGrid[i][j].resetGame();

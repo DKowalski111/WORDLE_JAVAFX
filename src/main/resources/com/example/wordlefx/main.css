@@ -1,28 +1,74 @@
 .root{
-    -default-color: rgb(233,236,239);
+    -default-color: rgb(230,230,230);
     -present-color: rgb(252,196,25);
     -correct-color: rgb(140,233,154);
     -wrong-color: rgb(173,181,189);
     -text-fill-color: rgb(33,37,41);
     -empty-border-color: rgb(33,37,41);
-    -unlocked-border-color: rgb(33,37,41);
+    -title-background-color: rgb(173,181,189);
     -key-background-color: rgb(222,226,230);
 }
 
 
 /*  ------------------------------------------- WHEN THE GAME IS ON ------------------------------------------------- */
 
+.title-wordle-pane{
+    -fx-padding: 10px;
+}
+
+.main-title-pane{
+    -fx-border-width: 2px 0px 2px 0px;
+    -fx-border-color: -empty-border-color;
+    -fx-background-color: -title-background-color;
+}
+
+.block-grid-pane,
+.keyboard-grid-pane{
+    -fx-padding: 20px;
+    -fx-background-color: linear-gradient(to right, -correct-color, -present-color);
+}
+
+.block-title-default,
+.block-title-correct,
+.block-title-present,
+.block-title-wrong{
+    -fx-font-size: 12px;
+    -fx-font-weight: bold;
+    -fx-border-width: 2px;
+    -fx-min-width: 32px;
+    -fx-min-height: 32px;
+    -fx-pref-width: 32px;
+    -fx-pref-height: 32px;
+    -fx-text-alignment: center;
+    -fx-alignment: center;
+    -fx-background-color: -default-color;
+    -fx-border-color: -empty-border-color;
+    -fx-text-fill: -text-fill-color;
+}
+
+.block-title-correct{
+    -fx-background-color: -correct-color;
+}
+
+.block-title-present{
+    -fx-background-color: -present-color;
+}
+
+.block-title-wrong{
+    -fx-background-color: -wrong-color;
+}
+
 .block-default,
 .block-correct,
 .block-present,
 .block-wrong{
-    -fx-font-size: 30px;
+    -fx-font-size: 32px;
     -fx-font-weight: bold;
     -fx-border-width: 3px;
-    -fx-min-width: 65px;
-    -fx-min-height: 65px;
-    -fx-pref-width: 65px;
-    -fx-pref-height: 65px;
+    -fx-min-width: 64px;
+    -fx-min-height: 64px;
+    -fx-pref-width: 64px;
+    -fx-pref-height: 64px;
     -fx-text-alignment: center;
     -fx-alignment: center;
     -fx-background-color: -default-color;
@@ -49,10 +95,10 @@
     -fx-font-size: 24px;
     -fx-font-weight: bold;
     -fx-border-width: 3px;
-    -fx-min-width: 65px;
-    -fx-min-height: 65px;
-    -fx-pref-width: 65px;
-    -fx-pref-height: 65px;
+    -fx-min-width: 64px;
+    -fx-min-height: 64px;
+    -fx-pref-width: 64px;
+    -fx-pref-height: 64px;
     -fx-text-alignment: center;
     -fx-alignment: center;
     -fx-background-color: -default-color;

@@ -1,6 +1,8 @@
 package com.example.elements;
 
-import com.example.wordlefx.GameOver;
+/*
+Taking data ( words ) from a file, creating password
+ */
 
 import java.io.IOException;
 import java.nio.file.Files;
@@ -12,11 +14,10 @@ import java.util.Random;
 
 public class Database {
     private static Database instance;
-    private List<String> words;
+    private final List<String> words;
     private String password;
     private Database(){
         words = new ArrayList<>();
-        Random random = new Random();
         Path path = Paths.get("src/main/resources/com/example/wordlefx/words.txt");
         try {
             words.addAll(Files.readAllLines(path));
@@ -24,7 +25,7 @@ public class Database {
         }catch(IOException e){
             e.printStackTrace();
         }
-        password = words.get(random.nextInt(0, words.size()));
+        generateNewPassword();
         System.out.println(password);
     }
     public static Database getInstance(){
@@ -32,6 +33,11 @@ public class Database {
             instance = new Database();
         }
         return instance;
+    }
+    public void generateNewPassword(){
+        Random random = new Random();
+        this.password = words.get(random.nextInt(0, words.size()));
+        System.out.println(password);
     }
     public boolean checkWord(String word){
         return word.equals(getInstance().password.toUpperCase());

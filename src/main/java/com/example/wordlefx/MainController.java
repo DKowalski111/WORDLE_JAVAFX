@@ -1,38 +1,39 @@
 package com.example.wordlefx;
 
-import com.example.elements.Block;
 import com.example.elements.BlockGrid;
 import com.example.elements.Database;
 import com.example.elements.Keyboard;
 import javafx.application.Platform;
 import javafx.fxml.FXML;
-import javafx.scene.Node;
-import javafx.scene.control.Button;
-import javafx.scene.control.Label;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
-import javafx.scene.layout.BorderPane;
-import javafx.scene.layout.GridPane;
+import javafx.scene.layout.*;
 import javafx.stage.Stage;
 
-import java.security.Key;
-
 public class MainController {
-    private BlockGrid blockGrid = BlockGrid.getInstance();
-    private Keyboard keyboard = Keyboard.getInstance();
-    private static boolean isGameOver;
+    @FXML
+    private HBox titleWordlePane;
+    @FXML
+    private HBox mainTitlePane;
     @FXML
     private GridPane blockGridPane;
     @FXML
     private GridPane keyboardGridPane;
-    @FXML
-    private BorderPane mainPane;
+    private final BlockGrid blockGrid = BlockGrid.getInstance();
+    private final Keyboard keyboard = Keyboard.getInstance();
+    private static boolean isGameOver;
     private static boolean result; // true = win, false = lose
     public void initialize(){
         isGameOver = false;
-        Database.getInstance();
         createGrid();
         Platform.runLater(() -> blockGridPane.requestFocus());
+        titleWordlePane.getStyleClass().add("title-wordle-pane");
+        mainTitlePane.getStyleClass().add("main-title-pane");
+    }
+    private void createGrid(){
+        blockGrid.createTitleGrid(titleWordlePane);
+        blockGrid.createGrid(blockGridPane);
+        keyboard.createGrid(keyboardGridPane);
     }
     @FXML
     public void handleKeyPressed(KeyEvent keyEvent){
@@ -46,10 +47,6 @@ public class MainController {
             }
         }
     }
-    private void createGrid(){
-        blockGrid.createGrid(blockGridPane);
-        keyboard.createGrid(keyboardGridPane);
-    }
     public static void checkWord(){
         if(BlockGrid.getInstance().getCurrentColumn() == 5){
             String currentWord = BlockGrid.getInstance().getWordFromRow();
@@ -59,6 +56,9 @@ public class MainController {
                 Keyboard.getInstance().updateKeyButtons(currentWord, password);
                 if(Database.getInstance().checkWord(currentWord)){
                     result = true;
+                    stopGame();
+                } else if(BlockGrid.getInstance().getCurrentRow() == 6){
+                    result = false;
                     stopGame();
                 }
             }
@@ -75,13 +75,10 @@ public class MainController {
         isGameOver = false;
         BlockGrid.getInstance().resetGame();
         Keyboard.getInstance().resetGame();
+        Database.getInstance().generateNewPassword();
     }
     public static boolean isGameOver(){
         return isGameOver;
-    }
-    public static void noMoreLives() {
-        MainController.result = false;
-        stopGame();
     }
     public static boolean getResult(){
         return result;

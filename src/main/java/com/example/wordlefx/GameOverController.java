@@ -5,8 +5,6 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.layout.BorderPane;
 
-import java.io.IOException;
-
 public class GameOverController {
     @FXML
     private Button gameOverYesButton;
