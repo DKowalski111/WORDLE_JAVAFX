@@ -23,7 +23,7 @@ public class Main extends Application {
         FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("main.fxml"));
         Scene scene = new Scene(fxmlLoader.load(), 1000, 760);
 
-        mainStage.setTitle("Hello!");
+        mainStage.setTitle("WORDLE!");
         mainStage.setScene(scene);
         mainStage.show();
     }

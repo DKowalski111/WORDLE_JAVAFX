@@ -1,0 +1,77 @@
+.root{
+    -default-color: rgb(233,236,239);
+    -present-color: rgb(252,196,25);
+    -correct-color: rgb(140,233,154);
+    -wrong-color: rgb(173,181,189);
+    -text-fill-color: rgb(33,37,41);
+    -empty-border-color: rgb(33,37,41);
+    -unlocked-border-color: rgb(33,37,41);
+    -key-background-color: rgb(222,226,230);
+}
+
+
+/*  ------------------------------------------- WHEN THE GAME IS ON ------------------------------------------------- */
+
+.block-default,
+.block-correct,
+.block-present,
+.block-wrong{
+    -fx-font-size: 30px;
+    -fx-font-weight: bold;
+    -fx-border-width: 3px;
+    -fx-min-width: 65px;
+    -fx-min-height: 65px;
+    -fx-pref-width: 65px;
+    -fx-pref-height: 65px;
+    -fx-text-alignment: center;
+    -fx-alignment: center;
+    -fx-background-color: -default-color;
+    -fx-border-color: -empty-border-color;
+    -fx-text-fill: -text-fill-color;
+}
+
+.block-correct{
+    -fx-background-color: -correct-color;
+}
+
+.block-present{
+    -fx-background-color: -present-color;
+}
+
+.block-wrong{
+    -fx-background-color: -wrong-color;
+}
+
+.key-button-default,
+.key-button-correct,
+.key-button-present,
+.key-button-wrong{
+    -fx-font-size: 24px;
+    -fx-font-weight: bold;
+    -fx-border-width: 3px;
+    -fx-min-width: 65px;
+    -fx-min-height: 65px;
+    -fx-pref-width: 65px;
+    -fx-pref-height: 65px;
+    -fx-text-alignment: center;
+    -fx-alignment: center;
+    -fx-background-color: -default-color;
+    -fx-border-color: -empty-border-color;
+    -fx-text-fill: -text-fill-color;
+}
+
+.key-button-correct{
+    -fx-background-color: -correct-color;
+}
+
+.key-button-present{
+    -fx-background-color: -present-color;
+}
+
+.key-button-wrong{
+    -fx-background-color: -wrong-color;
+}
+
+.border-pane-game-over{
+    -fx-background-color: rgb(233,236,239);
+}

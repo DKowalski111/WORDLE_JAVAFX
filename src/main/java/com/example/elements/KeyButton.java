@@ -48,5 +48,11 @@ public class KeyButton {
     }
     public void stopGame(){
         this.button.getStyleClass().add("key-button-"+keyState+"-disabled");
+        this.button.setOpacity(0.5);
+    }
+    public void resetGame(){
+        this.button.getStyleClass().remove("key-button-"+keyState+"-disabled");
+        this.button.getStyleClass().add("key-button-default");
+        this.button.setOpacity(1);
     }
 }

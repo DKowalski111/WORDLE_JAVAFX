@@ -71,4 +71,9 @@ public class MainController {
     public static boolean isGameOver(){
         return isGameOver;
     }
+    public static void resetGame(){
+        isGameOver = false;
+        BlockGrid.getInstance().resetGame();
+        Keyboard.getInstance().resetGame();
+    }
 }

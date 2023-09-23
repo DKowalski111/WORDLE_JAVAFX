@@ -14,7 +14,6 @@ import javafx.stage.StageStyle;
 import java.io.IOException;
 
 public class GameOver {
-    private static boolean isGameOver = false;
     private static Popup popup;
     public static void generateGameOverPopup(Stage stage){
         try{
@@ -49,12 +48,8 @@ public class GameOver {
             e.printStackTrace();
         }
     }
-
-    public static boolean isIsGameOver() {
-        return isGameOver;
-    }
-
-    public static void setIsGameOver(boolean isGameOver) {
-        GameOver.isGameOver = isGameOver;
+    public static void resetGame(){
+        popup.hide();
+        MainController.resetGame();
     }
 }

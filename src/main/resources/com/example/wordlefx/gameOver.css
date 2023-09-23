@@ -1,0 +1,52 @@
+.root{
+    -texts-borders-color-win: #2b8a3e;
+    -texts-borders-color-lose: #c92a2a;
+    -background-color-lose: #ffe3e3;
+    -background-color-win: #ebfbee;
+    -default-color: rgb(233,236,239);
+    -text-fill-color: rgb(33,37,41);
+    -empty-border-color: rgb(33,37,41);
+}
+
+.game-over-border-pane-win{
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.3), 30, 0.5, 0, 2);
+    -fx-background-color: -background-color-win;
+}
+
+.game-over-header-win{
+    -fx-font-size: 64px;
+    -fx-font-weight: bold;
+    -fx-text-fill: -texts-borders-color-win;
+}
+
+.game-over-text-win{
+    -fx-font-size: 32px;
+    -fx-font-weight: bold;
+    -fx-text-fill: -texts-borders-color-win;
+    -fx-text-alignment: center;
+}
+
+.game-over-yes-button,
+.game-over-no-button{
+    -fx-font-size: 24px;
+    -fx-font-weight: bold;
+    -fx-border-width: 6px;
+    -fx-min-width: 130px;
+    -fx-min-height: 65px;
+    -fx-pref-width: 130px;
+    -fx-pref-height: 65px;
+    -fx-text-alignment: center;
+    -fx-alignment: center;
+}
+
+.game-over-yes-button{
+    -fx-background-color: -background-color-win;
+    -fx-border-color: -texts-borders-color-win;
+    -fx-text-fill: -texts-borders-color-win;
+}
+
+.game-over-no-button{
+    -fx-background-color: -background-color-lose;
+    -fx-border-color: -texts-borders-color-lose;
+    -fx-text-fill: -texts-borders-color-lose;
+}

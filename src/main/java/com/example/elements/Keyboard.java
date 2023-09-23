@@ -51,4 +51,9 @@ public class Keyboard {
             keyButton.stopGame();
         }
     }
+    public void resetGame(){
+        for(KeyButton keyButton : keyboardGrid){
+            keyButton.resetGame();
+        }
+    }
 }

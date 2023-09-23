@@ -19,6 +19,11 @@ public class Block {
     }
     public void stopGame(){
         this.label.setOpacity(0.5);
-        this.label.getStyleClass().add("block-" + blockState + "-disabled");
+    }
+    public void resetGame(){
+        this.label.setText("");
+        this.label.getStyleClass().remove(String.format("block-%s", blockState));
+        this.label.getStyleClass().add("block-default");
+        this.label.setOpacity(1);
     }
 }

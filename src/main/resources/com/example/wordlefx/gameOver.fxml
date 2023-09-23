@@ -7,15 +7,25 @@
 <?import javafx.scene.layout.*?>
 
 <?import java.net.URL?>
+<?import javafx.geometry.Insets?>
 <BorderPane fx:id="gameOverBorderPane" xmlns="http://javafx.com/javafx"
             xmlns:fx="http://javafx.com/fxml"
             fx:controller="com.example.wordlefx.GameOverController"
             prefHeight="400" prefWidth="500">
     <stylesheets>
-        <URL value="@styles.css"/>
+        <URL value="@gameOver.css"/>
     </stylesheets>
+    <top>
+        <Label fx:id="gameOverHeader" BorderPane.alignment="CENTER"/>
+    </top>
     <center>
-        <Label text="Oporowo dwuja i gaz"/>
+        <Label fx:id="gameOverText" text="Do you want to start a new game?" wrapText="true" BorderPane.alignment="CENTER"/>
     </center>
+    <bottom>
+        <HBox spacing="100" alignment="CENTER" prefHeight="100">
+            <Button fx:id="gameOverYesButton" text="Yes" onMouseClicked="#handleYesButtonClick"/>
+            <Button fx:id="gameOverNoButton" text="No" onMouseClicked="#handleNoButtonClick"/>
+        </HBox>
+    </bottom>
 
 </BorderPane>

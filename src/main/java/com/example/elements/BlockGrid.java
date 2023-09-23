@@ -11,6 +11,7 @@ import javafx.scene.layout.GridPane;
 import javafx.stage.Stage;
 
 public class BlockGrid {
+    private static GridPane parent;
     private static BlockGrid instance;
     private Block[][] blockGrid;
     private int currentRow;
@@ -27,6 +28,7 @@ public class BlockGrid {
         return instance;
     }
     public void createGrid(GridPane gridPane){
+        parent = gridPane;
         for(int i = 0; i < 6; i++){
             for(int j = 0; j < 5; j++){
                 Block newBlock = new Block();
@@ -79,5 +81,14 @@ public class BlockGrid {
                 blockGrid[i][j].stopGame();
             }
         }
+    }
+    public void resetGame(){
+        for(int i = 0; i < 5; i++){
+            for(int j = 0; j < 6; j++){
+                blockGrid[i][j].resetGame();
+            }
+        }
+        this.currentColumn = 0;
+        this.currentRow = 0;
     }
 }

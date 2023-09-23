@@ -15,7 +15,7 @@
             fx:controller="com.example.wordlefx.MainController"
             onKeyReleased="#handleKeyPressed">
     <stylesheets>
-        <URL value="@styles.css"/>
+        <URL value="@main.css"/>
     </stylesheets>
     <top>
         <GridPane fx:id="blockGridPane" alignment="TOP_CENTER" vgap="10" hgap="10"/>
