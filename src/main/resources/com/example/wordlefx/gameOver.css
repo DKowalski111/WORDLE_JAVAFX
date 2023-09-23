@@ -13,16 +13,34 @@
     -fx-background-color: -background-color-win;
 }
 
+.game-over-border-pane-lose{
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.3), 30, 0.5, 0, 2);
+    -fx-background-color: -background-color-lose;
+}
+
 .game-over-header-win{
     -fx-font-size: 64px;
     -fx-font-weight: bold;
     -fx-text-fill: -texts-borders-color-win;
 }
 
+.game-over-header-lose{
+    -fx-font-size: 64px;
+    -fx-font-weight: bold;
+    -fx-text-fill: -texts-borders-color-lose;
+}
+
 .game-over-text-win{
     -fx-font-size: 32px;
     -fx-font-weight: bold;
     -fx-text-fill: -texts-borders-color-win;
+    -fx-text-alignment: center;
+}
+
+.game-over-text-lose{
+    -fx-font-size: 32px;
+    -fx-font-weight: bold;
+    -fx-text-fill: -texts-borders-color-lose;
     -fx-text-alignment: center;
 }
 

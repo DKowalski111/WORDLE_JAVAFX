@@ -27,6 +27,7 @@ public class MainController {
     private GridPane keyboardGridPane;
     @FXML
     private BorderPane mainPane;
+    private static boolean result; // true = win, false = lose
     public void initialize(){
         isGameOver = false;
         Database.getInstance();
@@ -55,7 +56,9 @@ public class MainController {
             if(Database.getInstance().checkIfExists(currentWord)){
                 String password = Database.getInstance().getPassword();
                 BlockGrid.getInstance().updateBlocks(currentWord, password);
+                Keyboard.getInstance().updateKeyButtons(currentWord, password);
                 if(Database.getInstance().checkWord(currentWord)){
+                    result = true;
                     stopGame();
                 }
             }
@@ -63,17 +66,24 @@ public class MainController {
     }
     public static void stopGame(){
         Stage mainStage = Main.getMainStage();
-        GameOver.generateGameOverPopup(mainStage);
+        GameOver.generateGameOverPopup(mainStage, result);
         isGameOver = true;
         BlockGrid.getInstance().stopGame();
         Keyboard.getInstance().stopGame();
-    }
-    public static boolean isGameOver(){
-        return isGameOver;
     }
     public static void resetGame(){
         isGameOver = false;
         BlockGrid.getInstance().resetGame();
         Keyboard.getInstance().resetGame();
+    }
+    public static boolean isGameOver(){
+        return isGameOver;
+    }
+    public static void noMoreLives() {
+        MainController.result = false;
+        stopGame();
+    }
+    public static boolean getResult(){
+        return result;
     }
 }

@@ -15,7 +15,6 @@ import java.util.Objects;
 public class KeyButton {
     private Button button;
     private EventHandler<ActionEvent> eventListener;
-    private boolean alreadyChecked = false;
     private String keyState = "default";
     public KeyButton(String s){
         this.button = new Button(s);
@@ -39,19 +38,24 @@ public class KeyButton {
     public Button getButton(){
         return this.button;
     }
-    public void updateKeyButton(String keyState){
-        if(!alreadyChecked){
-            this.keyState = keyState;
+    public void setKeyButtonState(String keyState){
+        if(this.keyState == "present" && keyState == "correct"){
+            this.button.getStyleClass().remove(String.format("key-button-%s", this.keyState));
             this.button.getStyleClass().add(String.format("key-button-%s", keyState));
-            alreadyChecked = true;
+            this.keyState = keyState;
+            return;
+        } else if(this.keyState == "present" && (keyState == "wrong" || keyState == "present")
+                || this.keyState == "correct"){
+            return;
         }
+        this.keyState = keyState;
+        this.button.getStyleClass().add(String.format("key-button-%s", keyState));
     }
     public void stopGame(){
-        this.button.getStyleClass().add("key-button-"+keyState+"-disabled");
         this.button.setOpacity(0.5);
     }
     public void resetGame(){
-        this.button.getStyleClass().remove("key-button-"+keyState+"-disabled");
+        this.button.getStyleClass().remove("key-button-"+keyState);
         this.button.getStyleClass().add("key-button-default");
         this.button.setOpacity(1);
     }

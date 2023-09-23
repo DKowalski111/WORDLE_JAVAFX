@@ -6,6 +6,7 @@ Class responsible for creating a whole grid of Blocks
 
 import com.example.wordlefx.GameOver;
 import com.example.wordlefx.Main;
+import com.example.wordlefx.MainController;
 import javafx.scene.input.KeyCode;
 import javafx.scene.layout.GridPane;
 import javafx.stage.Stage;
@@ -64,6 +65,9 @@ public class BlockGrid {
         }
         currentColumn = 0;
         currentRow++;
+        if(currentRow == 6){
+            MainController.noMoreLives();
+        }
     }
     public String getWordFromRow(){
         String[] tempArray = new String[5];

@@ -36,6 +36,18 @@ public class Keyboard {
             keyboardGrid[i] = newKeyButton;
         }
     }
+    public void updateKeyButtons(String enteredWord, String password){
+        for(int i = 4; i >= 0; i--){
+            KeyButton keyButton = getKeyButton(String.valueOf(enteredWord.charAt(i)));
+            if(password.charAt(i) == enteredWord.toLowerCase().charAt(i)){
+                keyButton.setKeyButtonState("correct");
+            } else if(password.contains(String.valueOf(enteredWord.toLowerCase().charAt(i)))){
+                keyButton.setKeyButtonState("present");
+            } else {
+                keyButton.setKeyButtonState("wrong");
+            }
+        }
+    }
     public KeyButton getKeyButton(String letter){
         int indexOfLetter = 0;
         for( int i = 0; i < letters.length; i++){

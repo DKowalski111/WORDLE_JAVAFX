@@ -15,7 +15,7 @@ import java.io.IOException;
 
 public class GameOver {
     private static Popup popup;
-    public static void generateGameOverPopup(Stage stage){
+    public static void generateGameOverPopup(Stage stage, boolean result){
         try{
             FXMLLoader fxmlLoader = new FXMLLoader(GameOver.class.getResource("gameOver.fxml"));
 
