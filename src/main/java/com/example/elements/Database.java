@@ -21,12 +21,10 @@ public class Database {
         Path path = Paths.get("src/main/resources/com/example/wordlefx/words.txt");
         try {
             words.addAll(Files.readAllLines(path));
-            System.out.println(words.get(1));
         }catch(IOException e){
             e.printStackTrace();
         }
         generateNewPassword();
-        System.out.println(password);
     }
     public static Database getInstance(){
         if(instance == null){
@@ -37,7 +35,6 @@ public class Database {
     public void generateNewPassword(){
         Random random = new Random();
         this.password = words.get(random.nextInt(0, words.size()));
-        System.out.println(password);
     }
     public boolean checkWord(String word){
         return word.equals(getInstance().password.toUpperCase());
